@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include erpnext_fixed_deposits *.css
+recursive-include erpnext_fixed_deposits *.csv
+recursive-include erpnext_fixed_deposits *.html
+recursive-include erpnext_fixed_deposits *.ico
+recursive-include erpnext_fixed_deposits *.js
+recursive-include erpnext_fixed_deposits *.json
+recursive-include erpnext_fixed_deposits *.md
+recursive-include erpnext_fixed_deposits *.png
+recursive-include erpnext_fixed_deposits *.py
+recursive-include erpnext_fixed_deposits *.svg
+recursive-include erpnext_fixed_deposits *.txt
+recursive-exclude erpnext_fixed_deposits *.pyc
