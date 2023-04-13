@@ -6,7 +6,8 @@ from frappe.model.document import Document
 
 class EmployeeSecurityDepositRegister(Document):
     def before_save(self):
-        self.calculate_interest()
+        if self.interest_entry:
+            self.calculate_interest()
 
     def calculate_interest(self):
         self.interest_amount = (self.deposit_amount * self.rate_of_interest * self.quarterly_duration)/100

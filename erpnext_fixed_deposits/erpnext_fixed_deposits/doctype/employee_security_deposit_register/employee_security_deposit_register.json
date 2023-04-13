@@ -18,7 +18,9 @@
   "location",
   "rate_of_interest",
   "total_amount",
-  "amended_from"
+  "amended_from",
+  "interest_entry",
+  "before_one_week"
  ],
  "fields": [
   {
@@ -95,12 +97,24 @@
    "options": "Employee Security Deposit Register",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "interest_entry",
+   "fieldtype": "Check",
+   "label": "Interest Entry"
+  },
+  {
+   "default": "0",
+   "fieldname": "before_one_week",
+   "fieldtype": "Check",
+   "label": " Before One Week"
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-04-13 20:20:37.352796",
+ "modified": "2023-04-13 21:13:44.469888",
  "modified_by": "Administrator",
  "module": "erpnext_fixed_deposits",
  "name": "Employee Security Deposit Register",

@@ -2,28 +2,28 @@
  "actions": [],
  "allow_rename": 1,
  "autoname": "FDCR.####",
- "creation": "2023-04-12 17:44:38.038142",
+ "creation": "2023-04-13 21:06:58.968278",
  "default_view": "List",
  "doctype": "DocType",
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "bank_name",
+  "bank_account",
   "amount_invested",
   "date_of_deposit",
   "date_of_maturity",
   "net_interest",
   "column_break_hnuj1",
-  "status",
   "rate_of_interest",
   "no_of_days",
   "tds",
   "interest_amount",
-  "amended_from"
+  "amended_from",
+  "before_one_week_of_the_maturity"
  ],
  "fields": [
   {
-   "fieldname": "bank_name",
+   "fieldname": "bank_account",
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Bank Account",
@@ -52,14 +52,18 @@
    "reqd": 1
   },
   {
+   "fieldname": "net_interest",
+   "fieldtype": "Float",
+   "label": "Net Interest"
+  },
+  {
    "fieldname": "column_break_hnuj1",
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "status",
-   "fieldtype": "Select",
-   "label": "Status",
-   "options": "Matured\nNon Matured",
+   "fieldname": "rate_of_interest",
+   "fieldtype": "Float",
+   "label": " Rate of Interest",
    "reqd": 1
   },
   {
@@ -69,9 +73,9 @@
    "reqd": 1
   },
   {
-   "fieldname": "rate_of_interest",
-   "fieldtype": "Float",
-   "label": " Rate of Interest",
+   "fieldname": "tds",
+   "fieldtype": "Currency",
+   "label": "TDS",
    "reqd": 1
   },
   {
@@ -80,22 +84,26 @@
    "label": "Interest amount"
   },
   {
-   "fieldname": "tds",
-   "fieldtype": "Currency",
-   "label": "TDS",
-   "reqd": 1
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Fixed Deposit Control Register",
+   "print_hide": 1,
+   "read_only": 1
   },
   {
-   "fieldname": "net_interest",
-   "fieldtype": "Float",
-   "label": "Net Interest"
+   "default": "0",
+   "fieldname": "before_one_week_of_the_maturity",
+   "fieldtype": "Check",
+   "label": "Before One Week Of The Maturity"
   },
   {
    "fieldname": "amended_from",
    "fieldtype": "Link",
    "label": "Amended From",
    "no_copy": 1,
-   "options": "FIXED DEPOSIT CONTROL REGISTER",
+   "options": "Fixed Deposit Control Register",
    "print_hide": 1,
    "read_only": 1
   }
@@ -103,10 +111,10 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-04-13 17:53:43.466887",
+ "modified": "2023-04-13 21:17:20.564967",
  "modified_by": "Administrator",
  "module": "erpnext_fixed_deposits",
- "name": "FIXED DEPOSIT CONTROL REGISTER",
+ "name": "Fixed Deposit Control Register",
  "naming_rule": "By \"Naming Series\" field",
  "owner": "Administrator",
  "permissions": [

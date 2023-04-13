@@ -4,7 +4,7 @@
 import frappe
 from frappe.model.document import Document
 
-class FIXEDDEPOSITCONTROLREGISTER(Document):
+class FixedDepositControlRegister(Document):
     # def before_save(self):
     #     self.calculate_interest()
 

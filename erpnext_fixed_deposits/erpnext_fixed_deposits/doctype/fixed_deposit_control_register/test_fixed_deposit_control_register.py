@@ -5,5 +5,5 @@
 from frappe.tests.utils import FrappeTestCase
 
 
-class TestFIXEDDEPOSITCONTROLREGISTER(FrappeTestCase):
+class TestFixedDepositControlRegister(FrappeTestCase):
 	pass
