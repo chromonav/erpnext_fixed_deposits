@@ -23,8 +23,8 @@ class EmployeeSecurityDepositRegister(Document):
         if self.quarterly_duration <= 0:
             frappe.throw("Quarterly Duration should be greater than zero")
 
-    def on_update(self):
-        if frappe.utils.date_diff(frappe.utils.nowdate(), self.date_of_joining) >= 1095 and frappe.utils.date_diff(frappe.utils.nowdate(), self.date_of_joining) < 1102:
-            frappe.msgprint("Employee {0}'s deposit will be completed in one week.".format(self.employee_name))
-        frappe.msgprint("Employee Security Deposit Register updated successfully!")
+def check_one_week():
+    for item in frappe.get_all("Employee Security Deposit Register",["name","date_of_joining"]):
+        if frappe.utils.date_diff(frappe.utils.nowdate(), item.date_of_joining) >= 1095 and frappe.utils.date_diff(frappe.utils.nowdate(), item.date_of_joining) < 1102:
+            frappe.db.set_value("Employee Security Deposit Register",item.name,"before_one_week",True)
 

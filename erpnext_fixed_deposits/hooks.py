@@ -113,23 +113,24 @@ app_license = "MIT"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
+scheduler_events = {
 #	"all": [
 #		"erpnext_fixed_deposits.tasks.all"
 #	],
-#	"daily": [
+#	"hourly": [
 #		"erpnext_fixed_deposits.tasks.daily"
 #	],
-#	"hourly": [
-#		"erpnext_fixed_deposits.tasks.hourly"
-#	],
+	"daily": [
+		"erpnext_fixed_deposits.erpnext_fixed_deposits.doctype.fixed_deposit_control_register.fixed_deposit_control_register.check_maturity",
+        "erpnext_fixed_deposits.erpnext_fixed_deposits.doctype.employee_security_deposit_register.employee_security_deposit_register.check_one_week"
+	],
 #	"weekly": [
 #		"erpnext_fixed_deposits.tasks.weekly"
 #	],
 #	"monthly": [
 #		"erpnext_fixed_deposits.tasks.monthly"
 #	],
-# }
+}
 
 # Testing
 # -------

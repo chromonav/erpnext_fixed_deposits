@@ -3,7 +3,6 @@
 
 import frappe
 from frappe.model.document import Document
-
 class FixedDepositControlRegister(Document):
     # def before_save(self):
     #     self.calculate_interest()
@@ -23,10 +22,16 @@ class FixedDepositControlRegister(Document):
         if self.no_of_days <= 0:
             frappe.throw("Number of Days should be greater than zero")
 
+        if frappe.utils.nowdate() > self.date_of_maturity:
+            frappe.throw("Date of Maturity should be greater than Current Date")
+
     def on_update(self):
         frappe.msgprint("Fixed Deposit Control Register updated successfully!")
 
-    def check_maturity(self):
-        days_to_maturity = (self.maturity_date - frappe.utils.nowdate()).days
+
+def check_maturity():
+    for item in frappe.get_all("Fixed Deposit Control Register",["name","date_of_maturity"]):
+        from datetime import date
+        days_to_maturity = (item.date_of_maturity - date.today()).days
         if days_to_maturity <= 7:
-            frappe.msgprint("This Fixed Deposit will mature in less than 7 days!")
+            frappe.db.set_value("Fixed Deposit Control Register",item.name,"before_one_week_of_the_maturity",True)
