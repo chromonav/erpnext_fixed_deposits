@@ -1,0 +1,129 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "FDCR.####",
+ "creation": "2023-04-12 17:44:38.038142",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "bank_name",
+  "amount_invested",
+  "date_of_deposit",
+  "date_of_maturity",
+  "net_interest",
+  "column_break_hnuj1",
+  "status",
+  "rate_of_interest",
+  "no_of_days",
+  "tds",
+  "interest_amount",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "bank_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Bank Account",
+   "options": "Bank Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amount_invested",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Amount Invested",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_of_deposit",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of Deposit",
+   "reqd": 1
+  },
+  {
+   "fieldname": "date_of_maturity",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Date of Maturity",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_hnuj1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "label": "Status",
+   "options": "Matured\nNon Matured",
+   "reqd": 1
+  },
+  {
+   "fieldname": "no_of_days",
+   "fieldtype": "Int",
+   "label": "No. of Days",
+   "reqd": 1
+  },
+  {
+   "fieldname": "rate_of_interest",
+   "fieldtype": "Float",
+   "label": " Rate of Interest",
+   "reqd": 1
+  },
+  {
+   "fieldname": "interest_amount",
+   "fieldtype": "Currency",
+   "label": "Interest amount"
+  },
+  {
+   "fieldname": "tds",
+   "fieldtype": "Currency",
+   "label": "TDS",
+   "reqd": 1
+  },
+  {
+   "fieldname": "net_interest",
+   "fieldtype": "Float",
+   "label": "Net Interest"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "FIXED DEPOSIT CONTROL REGISTER",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2023-04-13 17:53:43.466887",
+ "modified_by": "Administrator",
+ "module": "erpnext_fixed_deposits",
+ "name": "FIXED DEPOSIT CONTROL REGISTER",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
