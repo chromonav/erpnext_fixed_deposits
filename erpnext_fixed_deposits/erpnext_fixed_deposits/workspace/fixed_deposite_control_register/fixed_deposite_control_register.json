@@ -1,0 +1,41 @@
+{
+ "charts": [],
+ "content": "[{\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">FIxed Deposite Control Register</span>\",\"col\":12}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Before One Week Of The Completion Of Three Years Period\",\"col\":3}},{\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Employee Security Deposit Register<b></b></span>\",\"col\":12}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Before One Week Of The Maturity\",\"col\":11}}]",
+ "creation": "2023-04-14 10:26:58.904552",
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "for_user": "",
+ "hide_custom": 0,
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "FIxed Deposite Control Register",
+ "links": [],
+ "modified": "2023-04-14 10:30:42.581978",
+ "modified_by": "Administrator",
+ "module": "erpnext_fixed_deposits",
+ "name": "FIxed Deposite Control Register",
+ "number_cards": [],
+ "owner": "Administrator",
+ "parent_page": "",
+ "public": 1,
+ "quick_lists": [],
+ "roles": [],
+ "sequence_id": 31.0,
+ "shortcuts": [
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Before One Week Of The Completion Of Three Years Period",
+   "link_to": "Before One Week Of The Completion Of Three Years Period",
+   "type": "Report"
+  },
+  {
+   "color": "Grey",
+   "doc_view": "List",
+   "label": "Before One Week Of The Maturity",
+   "link_to": "Before One Week Of The Maturity",
+   "type": "Report"
+  }
+ ],
+ "title": "FIxed Deposite Control Register"
+}
