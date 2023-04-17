@@ -96,8 +96,8 @@
    "default": "0",
    "fieldname": "before_one_week_of_the_maturity",
    "fieldtype": "Check",
-   "label": "Before One Week Of The Maturity",
-   "reqd": 1
+   "hidden": 1,
+   "label": "Before One Week Of The Maturity"
   },
   {
    "fieldname": "amended_from",
@@ -112,7 +112,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-04-17 17:39:50.887248",
+ "modified": "2023-04-17 18:09:34.842792",
  "modified_by": "Administrator",
  "module": "erpnext_fixed_deposits",
  "name": "Fixed Deposit Control Register",
