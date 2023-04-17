@@ -16,7 +16,7 @@ class EmployeeSecurityDepositRegister(Document):
         if self.workflow_state =="Approved":
             frappe.db.set_value(self.doctype, self.name, "interest_entry", True)
             self.calculate_interest()
-            
+            self.reload()
     def calculate_interest(self):
         interest_amount = (self.deposit_amount * self.rate_of_interest * self.quarterly_duration)/100
         total_amount = self.deposit_amount + self.interest_amount
