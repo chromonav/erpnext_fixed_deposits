@@ -1,6 +1,70 @@
 {
  "add_total_row": 0,
- "columns": [],
+ "columns": [
+  {
+   "fieldname": "employee",
+   "fieldtype": "Link",
+   "label": "Employee",
+   "options": "Employee",
+   "width": 0
+  },
+  {
+   "fieldname": "deposit_amount",
+   "fieldtype": "Currency",
+   "label": "Deposit Amount",
+   "width": 0
+  },
+  {
+   "fieldname": "date_of_joining",
+   "fieldtype": "Date",
+   "label": "Date of Joining",
+   "width": 0
+  },
+  {
+   "fieldname": "quarterly_duration",
+   "fieldtype": "Int",
+   "label": "Quarterly Duration",
+   "width": 0
+  },
+  {
+   "fieldname": "rate_of_interest",
+   "fieldtype": "Float",
+   "label": "Rate of Interest",
+   "width": 0
+  },
+  {
+   "fieldname": "interest_amount",
+   "fieldtype": "Currency",
+   "label": "Interest amount",
+   "width": 0
+  },
+  {
+   "fieldname": "department",
+   "fieldtype": "Link",
+   "label": "Department",
+   "options": "Department",
+   "width": 0
+  },
+  {
+   "fieldname": "location",
+   "fieldtype": "Link",
+   "label": "Location",
+   "options": "Location",
+   "width": 0
+  },
+  {
+   "fieldname": "total_amount",
+   "fieldtype": "Currency",
+   "label": "Total Amount",
+   "width": 0
+  },
+  {
+   "fieldname": "before_one_week",
+   "fieldtype": "Data",
+   "label": " Before One Week",
+   "width": 0
+  }
+ ],
  "creation": "2023-04-13 21:10:17.063393",
  "disable_prepared_report": 0,
  "disabled": 0,
@@ -9,13 +73,13 @@
  "filters": [],
  "idx": 0,
  "is_standard": "Yes",
- "modified": "2023-04-13 21:13:55.587767",
+ "modified": "2023-04-17 16:46:23.892878",
  "modified_by": "Administrator",
  "module": "erpnext_fixed_deposits",
  "name": "Before One Week Of The Completion Of Three Years Period",
  "owner": "Administrator",
  "prepared_report": 0,
- "query": "select \n        employee,\n        deposit_amount,\n        date_of_joining,\n        quarterly_duration,\n        interest_amount,\n        department,\n        location,\n        rate_of_interest,\n        total_amount,\n        before_one_week\n    from\n`tabEmployee Security Deposit Register`",
+ "query": "select \n        employee,\n        deposit_amount,\n        date_of_joining,\n        quarterly_duration,\n        interest_amount,\n        department,\n        location,\n        rate_of_interest,\n        total_amount,\n        if(before_one_week , \"Yes\",\"No\") as before_one_week\n    from\n`tabEmployee Security Deposit Register`",
  "ref_doctype": "Employee Security Deposit Register",
  "report_name": "Before One Week Of The Completion Of Three Years Period",
  "report_type": "Query Report",

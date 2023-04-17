@@ -53,7 +53,7 @@
   },
   {
    "fieldname": "net_interest",
-   "fieldtype": "Float",
+   "fieldtype": "Currency",
    "label": "Net Interest"
   },
   {
@@ -96,7 +96,8 @@
    "default": "0",
    "fieldname": "before_one_week_of_the_maturity",
    "fieldtype": "Check",
-   "label": "Before One Week Of The Maturity"
+   "label": "Before One Week Of The Maturity",
+   "reqd": 1
   },
   {
    "fieldname": "amended_from",
@@ -111,7 +112,7 @@
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-04-13 21:17:20.564967",
+ "modified": "2023-04-17 17:39:50.887248",
  "modified_by": "Administrator",
  "module": "erpnext_fixed_deposits",
  "name": "Fixed Deposit Control Register",

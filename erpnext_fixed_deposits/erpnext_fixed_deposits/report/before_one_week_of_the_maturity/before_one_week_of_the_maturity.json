@@ -1,6 +1,68 @@
 {
  "add_total_row": 0,
- "columns": [],
+ "columns": [
+  {
+   "fieldname": "bank_account",
+   "fieldtype": "Link",
+   "label": "Bank Account",
+   "options": "Bank Account",
+   "width": 0
+  },
+  {
+   "fieldname": "date_of_deposit",
+   "fieldtype": "Date",
+   "label": "Date of Deposit",
+   "width": 0
+  },
+  {
+   "fieldname": "date_of_maturity",
+   "fieldtype": "Date",
+   "label": "Date of Maturity",
+   "width": 0
+  },
+  {
+   "fieldname": "no_of_days",
+   "fieldtype": "Int",
+   "label": "No. of Days",
+   "width": 0
+  },
+  {
+   "fieldname": "rate_of_interest",
+   "fieldtype": "Float",
+   "label": " Rate of Interest",
+   "width": 0
+  },
+  {
+   "fieldname": "net_interest",
+   "fieldtype": "Currency",
+   "label": "Net Interest",
+   "width": 0
+  },
+  {
+   "fieldname": "amount_invested",
+   "fieldtype": "Currency",
+   "label": "Amount Invested",
+   "width": 0
+  },
+  {
+   "fieldname": "tds",
+   "fieldtype": "Currency",
+   "label": "TDS",
+   "width": 0
+  },
+  {
+   "fieldname": "interest_amount",
+   "fieldtype": "Currency",
+   "label": "Interest amount",
+   "width": 0
+  },
+  {
+   "fieldname": "before_one_week_of_the_maturity",
+   "fieldtype": "Data",
+   "label": "Before One Week Of The Maturity",
+   "width": 0
+  }
+ ],
  "creation": "2023-04-13 20:55:18.473731",
  "disable_prepared_report": 0,
  "disabled": 0,
@@ -9,13 +71,13 @@
  "filters": [],
  "idx": 0,
  "is_standard": "Yes",
- "modified": "2023-04-14 12:25:38.776664",
+ "modified": "2023-04-17 16:42:18.046876",
  "modified_by": "Administrator",
  "module": "erpnext_fixed_deposits",
  "name": "Before One Week Of The Maturity",
  "owner": "Administrator",
  "prepared_report": 0,
- "query": "select \n    bank_account,\n    amount_invested,\n    date_of_deposit,\n    date_of_maturity,\n    net_interest,\n    rate_of_interest,\n    no_of_days,\n    tds,\n    interest_amount,\n    before_one_week_of_the_maturity\n    from \n`tabFixed Deposit Control Register`",
+ "query": "select \n    bank_account,\n    amount_invested,\n    date_of_deposit,\n    date_of_maturity,\n    net_interest,\n    rate_of_interest,\n    no_of_days,\n    tds,\n    interest_amount,\n    IF(before_one_week_of_the_maturity, \"YES\", \"NO\") as before_one_week_of_the_maturity\n    from \n`tabFixed Deposit Control Register`",
  "ref_doctype": "Fixed Deposit Control Register",
  "report_name": "Before One Week Of The Maturity",
  "report_type": "Query Report",

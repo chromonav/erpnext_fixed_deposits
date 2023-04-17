@@ -5,13 +5,23 @@ import frappe
 from frappe.model.document import Document
 
 class EmployeeSecurityDepositRegister(Document):
-    def before_save(self):
-        if self.interest_entry:
-            self.calculate_interest()
+   
 
+    def before_insert(self):
+        self.total_amount = 0
+        self.interest_amount = 0
+        self.interest_entry = False
+        
+    def on_update(self):
+        if self.workflow_state =="Approved":
+            frappe.db.set_value(self.doctype, self.name, "interest_entry", True)
+            self.calculate_interest()
+            
     def calculate_interest(self):
-        self.interest_amount = (self.deposit_amount * self.rate_of_interest * self.quarterly_duration)/100
-        self.total_amount = self.deposit_amount + self.interest_amount
+        interest_amount = (self.deposit_amount * self.rate_of_interest * self.quarterly_duration)/100
+        total_amount = self.deposit_amount + self.interest_amount
+        frappe.db.set_value(self.doctype, self.name, "interest_amount", interest_amount)
+        frappe.db.set_value(self.doctype, self.name, "total_amount", total_amount)
 
     def validate(self):
         if self.deposit_amount <= 0:
