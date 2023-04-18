@@ -37,14 +37,15 @@ class FixedDepositControlRegister(Document):
             #     "Deferred Revenue" if doc.doctype == "Sales Invoice" else "Deferred Expense"
             # )
             # journal_entry.process_deferred_accounting = deferred_process
-
+            total = (self.amount_invested+self.interest_amount)/100
+            tds = total*10
             debit_bank_entry = {
                 "account": self.bank_account,
-                "credit_in_account_currency": self.amount_invested,
+                "credit_in_account_currency": (self.amount_invested+self.interest_amount)-tds,
             }
             debit_tds_entry = {
                 "account": self.tds_account,
-                "credit_in_account_currency": 100,
+                "credit_in_account_currency": tds,
             }
             credit_interest_entry = {
                 "account": self.interest_account,
