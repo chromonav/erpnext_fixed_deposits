@@ -46,7 +46,7 @@
   },
   {
    "fieldname": "tds",
-   "fieldtype": "Currency",
+   "fieldtype": "Float",
    "label": "TDS",
    "width": 0
   },
@@ -71,7 +71,7 @@
  "filters": [],
  "idx": 0,
  "is_standard": "Yes",
- "modified": "2023-04-17 16:42:18.046876",
+ "modified": "2023-04-18 15:06:09.177157",
  "modified_by": "Administrator",
  "module": "erpnext_fixed_deposits",
  "name": "Before One Week Of The Maturity",

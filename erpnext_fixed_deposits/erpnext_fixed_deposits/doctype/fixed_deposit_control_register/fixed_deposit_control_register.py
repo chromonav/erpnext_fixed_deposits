@@ -28,6 +28,46 @@ class FixedDepositControlRegister(Document):
     def on_update(self):
         frappe.msgprint("Fixed Deposit Control Register updated successfully!")
 
+    def create_journal_entry(self):
+        try:
+            journal_entry = frappe.new_doc("Journal Entry")
+            journal_entry.posting_date = frappe.utils.nowdate()
+            journal_entry.company = self.company
+            # journal_entry.voucher_type = (
+            #     "Deferred Revenue" if doc.doctype == "Sales Invoice" else "Deferred Expense"
+            # )
+            # journal_entry.process_deferred_accounting = deferred_process
+
+            debit_bank_entry = {
+                "account": self.bank_account,
+                "credit_in_account_currency": self.amount_invested,
+            }
+            debit_tds_entry = {
+                "account": self.tds_account,
+                "credit_in_account_currency": 100,
+            }
+            credit_interest_entry = {
+                "account": self.interest_account,
+                "debit_in_account_currency": self.interest_amount,
+            }
+            credit_fdr_entry = {
+                "account": self.fdr_account,
+                "debit_in_account_currency": self.amount_invested,
+            }
+            journal_entry.append("accounts", debit_bank_entry)
+            journal_entry.append("accounts", debit_tds_entry)
+            journal_entry.append("accounts", credit_interest_entry)
+            journal_entry.append("accounts", credit_fdr_entry)
+            journal_entry.cheque_no = self.name
+            journal_entry.cheque_date = frappe.utils.nowdate()
+            journal_entry.user_remark = "Auto created Entry for FDR"
+            journal_entry.save()
+            journal_entry.submit()
+        except Exception:
+            frappe.db.rollback()
+            self.log_error(f"Error while processing deferred accounting for Invoice {self.name}")
+            frappe.flags.deferred_accounting_error = True
+
 
 def check_maturity():
     for item in frappe.get_all("Fixed Deposit Control Register",["name","date_of_maturity"]):
@@ -35,3 +75,12 @@ def check_maturity():
         days_to_maturity = (item.date_of_maturity - date.today()).days
         if days_to_maturity <= 7:
             frappe.db.set_value("Fixed Deposit Control Register",item.name,"before_one_week_of_the_maturity",True)
+        if str(item.date_of_maturity) == str(frappe.utils.nowdate()):
+            doc = frappe.get_doc("Fixed Deposit Control Register",item.name)
+            if not frappe.get_value("Journal Entry",{"cheque_no":item.name},"name"):
+                doc.create_journal_entry()
+            
+@frappe.whitelist()
+def update_interest(doc,new_interest):
+    frappe.db.set_value("Fixed Deposit Control Register",doc,"rate_of_interest",new_interest)
+

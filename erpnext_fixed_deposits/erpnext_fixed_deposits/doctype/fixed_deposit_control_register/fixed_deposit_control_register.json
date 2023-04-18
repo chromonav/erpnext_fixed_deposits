@@ -8,18 +8,24 @@
  "editable_grid": 1,
  "engine": "InnoDB",
  "field_order": [
-  "bank_account",
   "amount_invested",
   "date_of_deposit",
   "date_of_maturity",
   "net_interest",
+  "company",
   "column_break_hnuj1",
   "rate_of_interest",
   "no_of_days",
   "tds",
   "interest_amount",
   "amended_from",
-  "before_one_week_of_the_maturity"
+  "before_one_week_of_the_maturity",
+  "bank_details_tab",
+  "bank_account",
+  "tds_account",
+  "column_break_hzs3y",
+  "interest_account",
+  "fdr_account"
  ],
  "fields": [
   {
@@ -27,7 +33,7 @@
    "fieldtype": "Link",
    "in_list_view": 1,
    "label": "Bank Account",
-   "options": "Bank Account",
+   "options": "Account",
    "reqd": 1
   },
   {
@@ -73,10 +79,11 @@
    "reqd": 1
   },
   {
+   "default": "10",
    "fieldname": "tds",
-   "fieldtype": "Currency",
-   "label": "TDS",
-   "reqd": 1
+   "fieldtype": "Float",
+   "label": "TDS (%)",
+   "read_only": 1
   },
   {
    "fieldname": "interest_amount",
@@ -107,12 +114,49 @@
    "options": "Fixed Deposit Control Register",
    "print_hide": 1,
    "read_only": 1
+  },
+  {
+   "fieldname": "bank_details_tab",
+   "fieldtype": "Tab Break",
+   "label": "Bank Details"
+  },
+  {
+   "fieldname": "column_break_hzs3y",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "tds_account",
+   "fieldtype": "Link",
+   "label": "TDS Account",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "interest_account",
+   "fieldtype": "Link",
+   "label": "Interest Account",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "fdr_account",
+   "fieldtype": "Link",
+   "label": "FDR Account",
+   "options": "Account",
+   "reqd": 1
+  },
+  {
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2023-04-17 18:09:34.842792",
+ "modified": "2023-04-18 17:11:38.430245",
  "modified_by": "Administrator",
  "module": "erpnext_fixed_deposits",
  "name": "Fixed Deposit Control Register",
