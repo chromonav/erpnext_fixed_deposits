@@ -71,15 +71,16 @@ class FixedDepositControlRegister(Document):
 
 
 def check_maturity():
-    for item in frappe.get_all("Fixed Deposit Control Register",["name","date_of_maturity"]):
+    for item in frappe.get_all("Fixed Deposit Control Register",["name","date_of_maturity","docstatus"]):
         from datetime import date
-        days_to_maturity = (item.date_of_maturity - date.today()).days
-        if days_to_maturity <= 7:
-            frappe.db.set_value("Fixed Deposit Control Register",item.name,"before_one_week_of_the_maturity",True)
-        if str(item.date_of_maturity) == str(frappe.utils.nowdate()):
-            doc = frappe.get_doc("Fixed Deposit Control Register",item.name)
-            if not frappe.get_value("Journal Entry",{"cheque_no":item.name},"name"):
-                doc.create_journal_entry()
+        if item.docstatus:
+            days_to_maturity = (item.date_of_maturity - date.today()).days
+            if days_to_maturity <= 7:
+                frappe.db.set_value("Fixed Deposit Control Register",item.name,"before_one_week_of_the_maturity",True)
+            if str(item.date_of_maturity) == str(frappe.utils.nowdate()):
+                doc = frappe.get_doc("Fixed Deposit Control Register",item.name)
+                if not frappe.get_value("Journal Entry",{"cheque_no":item.name},"name"):
+                    doc.create_journal_entry()
             
 @frappe.whitelist()
 def update_interest(doc,new_interest):
