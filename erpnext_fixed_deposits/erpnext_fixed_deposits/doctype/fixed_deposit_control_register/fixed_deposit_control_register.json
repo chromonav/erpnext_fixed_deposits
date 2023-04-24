@@ -18,14 +18,14 @@
   "no_of_days",
   "tds",
   "interest_amount",
-  "amended_from",
   "before_one_week_of_the_maturity",
   "bank_details_tab",
   "bank_account",
   "tds_account",
   "column_break_hzs3y",
   "interest_account",
-  "fdr_account"
+  "fdr_account",
+  "amended_from"
  ],
  "fields": [
   {
@@ -155,8 +155,13 @@
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
- "links": [],
- "modified": "2023-04-18 17:11:38.430245",
+ "links": [
+  {
+   "link_doctype": "Journal Entry",
+   "link_fieldname": "cheque_no"
+  }
+ ],
+ "modified": "2023-04-24 12:46:52.583043",
  "modified_by": "Administrator",
  "module": "erpnext_fixed_deposits",
  "name": "Fixed Deposit Control Register",
