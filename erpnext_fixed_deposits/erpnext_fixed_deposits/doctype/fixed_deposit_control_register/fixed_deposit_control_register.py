@@ -105,7 +105,7 @@ def check_maturity():
         from datetime import date
         if item.docstatus:
             days_to_maturity = (item.date_of_maturity - date.today()).days
-            if days_to_maturity <= 7:
+            if days_to_maturity <= 7 and not frappe.db.exists("Fixed Deposit Control Register",item.name,{"before_one_week_of_the_maturity",True}):
                 frappe.db.set_value("Fixed Deposit Control Register",item.name,"before_one_week_of_the_maturity",True)
             if str(item.date_of_maturity) == str(frappe.utils.nowdate()):
                 doc = frappe.get_doc("Fixed Deposit Control Register",item.name)

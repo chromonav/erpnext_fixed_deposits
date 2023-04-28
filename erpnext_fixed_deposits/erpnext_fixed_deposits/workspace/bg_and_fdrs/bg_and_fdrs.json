@@ -11,7 +11,7 @@
  "is_hidden": 0,
  "label": "BG and FDRs",
  "links": [],
- "modified": "2023-04-17 16:27:50.497692",
+ "modified": "2023-04-28 10:40:18.954592",
  "modified_by": "Administrator",
  "module": "erpnext_fixed_deposits",
  "name": "BG and FDRs",
@@ -26,16 +26,16 @@
   {
    "color": "Grey",
    "doc_view": "List",
-   "label": "Fixed Deposit Control Register",
-   "link_to": "Fixed Deposit Control Register",
-   "type": "DocType"
+   "label": "Report",
+   "link_to": "Before One Week Of The Maturity",
+   "type": "Report"
   },
   {
    "color": "Grey",
    "doc_view": "List",
-   "label": "Report",
-   "link_to": "Before One Week Of The Completion Of Three Years Period",
-   "type": "Report"
+   "label": "Fixed Deposit Control Register",
+   "link_to": "Fixed Deposit Control Register",
+   "type": "DocType"
   },
   {
    "color": "Grey",
