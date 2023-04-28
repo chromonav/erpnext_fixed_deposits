@@ -55,10 +55,10 @@ class FixedDepositControlRegister(Document):
                 "account": self.fdr_account,
                 "debit_in_account_currency": self.amount_invested,
             }
-            journal_entry.append("accounts", debit_bank_entry)
-            journal_entry.append("accounts", debit_tds_entry)
             journal_entry.append("accounts", credit_interest_entry)
             journal_entry.append("accounts", credit_fdr_entry)
+            journal_entry.append("accounts", debit_bank_entry)
+            journal_entry.append("accounts", debit_tds_entry)
             journal_entry.cheque_no = self.name
             journal_entry.cheque_date = self.date_of_maturity
             journal_entry.user_remark = "Auto created Entry for FDR"
@@ -86,8 +86,8 @@ class FixedDepositControlRegister(Document):
                 "account": self.fdr_account,
                 "debit_in_account_currency": self.amount_invested
             }
-            journal_entry.append("accounts", debit_bank_entry)
             journal_entry.append("accounts", credit_fdr_entry)
+            journal_entry.append("accounts", debit_bank_entry)
             journal_entry.cheque_no = self.name
             journal_entry.cheque_date = self.date_of_deposit
             journal_entry.user_remark = "Auto created Entry for FDR"
